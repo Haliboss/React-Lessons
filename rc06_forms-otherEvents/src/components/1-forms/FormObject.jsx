@@ -84,31 +84,40 @@ export default Form;
 
 import React, { useState } from "react";
 
-const Form = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+const FormObject = () => {
+  const [formValues, setFormValues] = useState({
+    username: '',
+    email: '',
+    password:''
+  });
+  
+  const {username, email, password} = formValues;
+  
+  const handleForm = (e)=> {
+    console.log(e.target.value);
+    console.log(e.target.id);
+    setFormValues({...formValues, [e.target.id]: e.target.value})
+  }
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target);
     console.log("submiited");
     alert(`username: ${username}
-          email:${email}
-          passwrd:${password} `);
-    setUsername("");
-    setEmail("");
-    setPassword("");
-  };
-
-  const handleUsername = (e) => {
-    console.log(e.target.value);
-    setUsername(e.target.value);
+    email:${email}
+    passwrd:${password} `);
+    
+    setFormValues({
+      username:'',
+      email:'',
+      password:''
+    });
+    
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1 className="display-4 text-danger">FORMS</h1>
+      <h1 className="display-4 text-danger">FORM OBJECT</h1>
       <div className="mb-3">
         <label htmlFor="usename" className="form-label">
           Username: <span className="text-danger">{username}</span>
@@ -117,9 +126,8 @@ const Form = () => {
           type="text"
           className="form-control"
           id="username"
-          aria-describedby="emailHelp"
           value={username}
-          onChange={handleUsername}
+          onChange={handleForm}
         />
       </div>
       <div className="mb-3">
@@ -131,7 +139,7 @@ const Form = () => {
           className="form-control"
           id="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleForm}
         />
       </div>
       <div className="mb-3">
@@ -143,7 +151,7 @@ const Form = () => {
           className="form-control"
           id="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleForm}
         />
       </div>
       <button type="submit" className="btn btn-primary">
@@ -153,4 +161,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormObject;
