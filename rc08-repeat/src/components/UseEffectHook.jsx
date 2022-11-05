@@ -43,22 +43,31 @@ const UseEffectHook = () => {
   // }, []);
 
   //?componentDidMount + componentDidUpdate
-  useEffect(() => {
-    console.log("Mounting");
+  /* useEffect(() => {
+    console.log("Mounting + Updating");
     setTimeout(() => {
       alert("Data Fetched");
-    }, 3000);
-  }, []);
+    }, 1000);
+  }); */
 
+
+  //? ComponentDidUnmount
   const fetchData = () => {
     console.log("Fetching Data");
   };
 
   useEffect(() => {
+    //!ComponentDidMount
     const timerId = setInterval(fetchData, 3000);
-  }, []);
+    console.log("Mounting");
 
-  console.log("Mounting");
+    return() => {
+      //!ComponentWillUnmount
+      clearInterval(timerId);
+      console.log('unMounting');
+    }
+  });
+
   return (
     <div className="container text-center">
       <h1 className="text-danger">USE EFFECT</h1>
