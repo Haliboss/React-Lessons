@@ -43,6 +43,12 @@ const UseEffectHook = () => {
   // }, []);
 
   //?componentDidMount + componentDidUpdate
+  useEffect(() => {
+    console.log("Mounting");
+    setTimeout(() => {
+      alert("Data Fetched");
+    }, 3000);
+  }, []);
 
   const fetchData = () => {
     console.log("Fetching Data");
