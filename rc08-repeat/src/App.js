@@ -1,8 +1,9 @@
 
-import UseEffectHook from "./components/UseEffectHook";
+//import UseEffectHook from "./components/UseEffectHook";
 import LifeCycleMethods from "./components/LifeCycleMethods";
+
+//import Timer from './components/Timer'
 import { useState } from "react";
-import Timer from './components/Timer'
 
 function App() {
   const [show, setShow] = useState(true)
