@@ -2,12 +2,12 @@
 //import LifeCycleMethods from "./components/LifeCycleMethods";
 
 //import Timer from './components/Timer'
-import { useState } from "react";
+//import { useState } from "react";
 import User from "./components/User";
 //import UseEffectHook from "./components/UseEffectHook";
 
 function App() {
-  const [show, setShow] = useState(true);
+  //const [show, setShow] = useState(true);
 
   return (
     <div className="container text-center mt-4">
