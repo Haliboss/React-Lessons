@@ -38,13 +38,13 @@ const TutorialList = ({ tutor }) => {
                     //     description: "UPDATE",
                     //   })
                     // }
-                    onClick={() => setEditItem(item)}
+                    //onClick={() => setEditItem(item)}
                   />
                   <AiFillDelete
                     size={22}
                     type="button"
                     className="text-danger "
-                    onClick={() => deleteTutorial(id)}
+                    //onClick={() => deleteTutorial(id)}
                   />
                 </td>
               </tr>

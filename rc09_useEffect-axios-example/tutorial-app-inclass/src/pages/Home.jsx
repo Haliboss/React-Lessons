@@ -8,7 +8,7 @@ const Home = () => {
 
   const url = "https://tutorials-api-cw.herokuapp.com/api/tutorials";
 
-  //? CRUD : (GET-READ)
+  //? CRUD: (GET-READ)
   const getTutorials = async () => {
     try {
       const { data } = await axios(url);
@@ -19,14 +19,15 @@ const Home = () => {
     }
   };
 
+  //? didmount
   useEffect(() => {
     getTutorials();
   }, []);
 
   return (
     <>
-      <AddTutorial />
-      <TutorialList tutor={tutorials} />
+      <AddTutorial getTutorials={getTutorials} />
+      <TutorialList tutor={tutorials} getTutorials={getTutorials} />
     </>
   );
 };
