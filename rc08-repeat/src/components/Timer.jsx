@@ -16,10 +16,11 @@ class Timer extends Component {
     // if (prevState.time === 1) {
     if (this.state.time === 0) {
       clearInterval(this.intervalId);
+      console.log('Time Over');
     }
   }
   componentWillUnmount() {
-    console.log("Timer unmounted");
+    console.log("Timer Closed");
     clearInterval(this.intervalId);
   }
   render() {
