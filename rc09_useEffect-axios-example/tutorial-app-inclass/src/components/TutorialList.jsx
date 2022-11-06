@@ -1,7 +1,8 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 
-const TutorialList = () => {
+const TutorialList = ({ tutor }) => {
+  console.log(tutor);
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -16,23 +17,43 @@ const TutorialList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr key={id}>
-            <th>{id}</th>
-            <td>{title}</td>
-            <td>{description}</td>
-            <td className="text-center text-nowrap">
-              <FaEdit
-                size={20}
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#edit-modal"
-                className="me-2 text-warning"
-              />
-              <AiFillDelete size={22} type="button" className="text-danger " />
-            </td>
-          </tr>
+          {tutor?.map((item) => {
+            const { id, title, description } = item;
+            return (
+              <tr key={id}>
+                <th>{id}</th>
+                <td>{title}</td>
+                <td>{description}</td>
+                <td className="text-center text-nowrap">
+                  <FaEdit
+                    size={20}
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit-modal"
+                    className="me-2 text-warning"
+                    // onClick={() =>
+                    //   editTutorial({
+                    //     id: "1581",
+                    //     title: "UPDATE",
+                    //     description: "UPDATE",
+                    //   })
+                    // }
+                    onClick={() => setEditItem(item)}
+                  />
+                  <AiFillDelete
+                    size={22}
+                    type="button"
+                    className="text-danger "
+                    onClick={() => deleteTutorial(id)}
+                  />
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
+
+      {/* <EditTutorial editItem={editItem} getTutorials={getTutorials} /> */}
     </div>
   );
 };
