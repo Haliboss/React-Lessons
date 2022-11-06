@@ -15,7 +15,7 @@ const AddTutorial = ({ getTutorials }) => {
 
   //! POST - CRUD (Create)
   const addTutorial = async (newTutor) => {
-    const url = "https://tutorials-api-cw.herokuapp.com/api/tutorials";
+    const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
     try {
       await axios.post(url, newTutor);
     } catch (error) {

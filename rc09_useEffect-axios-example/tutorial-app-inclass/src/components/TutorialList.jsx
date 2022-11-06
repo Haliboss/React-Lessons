@@ -1,8 +1,30 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
+import axios from "axios";
 
-const TutorialList = ({ tutor }) => {
-  console.log(tutor);
+const TutorialList = ({ tutor, getTutorials }) => {
+  // console.log(tutor);
+
+  const deleteTutorial = async (id) => {
+    const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
+    try {
+      await axios.delete(`${url}/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  };
+
+  const editTutorial = async (item) => {
+    const { id, title, description } = item;
+    const url = "https://axios-example-cw.herokuapp.com/api/tutorials";
+    try {
+      await axios.put(`${url}/${id}`, { title, description });
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  };
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -31,20 +53,19 @@ const TutorialList = ({ tutor }) => {
                     data-bs-toggle="modal"
                     data-bs-target="#edit-modal"
                     className="me-2 text-warning"
-                    // onClick={() =>
-                    //   editTutorial({
-                    //     id: "1581",
-                    //     title: "UPDATE",
-                    //     description: "UPDATE",
-                    //   })
-                    // }
-                    //onClick={() => setEditItem(item)}
+                    onClick={() =>
+                      editTutorial({
+                        id: "1327",
+                        title: "UPDATE",
+                        description: "UPDATE",
+                      })
+                    }
                   />
                   <AiFillDelete
                     size={22}
                     type="button"
                     className="text-danger "
-                    //onClick={() => deleteTutorial(id)}
+                    onClick={() => deleteTutorial(id)}
                   />
                 </td>
               </tr>
