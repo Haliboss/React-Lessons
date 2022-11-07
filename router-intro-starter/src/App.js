@@ -4,17 +4,20 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Instructors from "./pages/Instructors";
 import NotFound from "./pages/NotFound";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Nav />
-      <Home />
-      <Instructors />
-      <Contact />
-      <NotFound />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/instructors" element={<Instructors />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
