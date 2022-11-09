@@ -13,8 +13,13 @@ const App = () => {
         <TomatoButton>Send</TomatoButton>
         <TomatoButton primary>Submit</TomatoButton>
       </Container>
-      <Container>
-        <StyledLink href="https://github.com/Haliboss" target='_blank'>Haliboss Demoss</StyledLink>
+      <Container bg="#eee">
+        <StyledLink href="https://github.com/Haliboss" target="_blank">
+          Haliboss Demoss
+        </StyledLink>
+        <StyledLink secondary href="https://reactjs.org" target="_blank">
+          Seboss Demoss
+        </StyledLink>
       </Container>
     </>
   );
