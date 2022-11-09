@@ -6,6 +6,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  padding: 1rem;
   background: ${({ bg }) => bg || "white"};
 `;
 
