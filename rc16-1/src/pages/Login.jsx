@@ -1,14 +1,21 @@
-import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { LoginContext } from "../context/LoginContext";
+import { useContext } from "react";
 
 const Login = () => {
-  const [user, setUser] = useState({ email: "", password: "" });
+
+  //? Local state
+  //const [user, setUser] = useState({ email: "", password: "" });
+
+  const { user, setUser } = useContext(LoginContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  console.log(user);
 
   return (
     <Container>
@@ -20,7 +27,7 @@ const Login = () => {
             type="email"
             placeholder="Enter your email"
             name="email"
-            value={user?.email}
+            value={user?.email || ""}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
         </Form.Group>
