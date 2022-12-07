@@ -8,13 +8,13 @@ import PersonDetail from "./pages/PersonDetail";
 import Login from "./pages/Login";
 import { LoginContext } from "./context/LoginContext";
 import { useState } from "react";
+import PrivateRouter from "./pages/PrivateRouter";
 
 function App() {
-
   const [user, setUser] = useState("");
 
   return (
-    <LoginContext.Provider value={{user, setUser}}>
+    <LoginContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Navs />
         <Routes>
@@ -22,10 +22,11 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
 
-          <Route path="people" element={<People />} />
-          <Route path="people/:id" element={<PersonDetail />} />
-
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="people" element={<PrivateRouter />}>
+            <Route path="" element={<People />} />
+            <Route path=":id" element={<PersonDetail />} />
+          </Route>
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
       </BrowserRouter>

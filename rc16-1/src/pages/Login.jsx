@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { LoginContext } from "../context/LoginContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
 
@@ -11,8 +13,11 @@ const Login = () => {
 
   const { user, setUser } = useContext(LoginContext);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    navigate(-1)
   };
 
   console.log(user);
@@ -38,7 +43,7 @@ const Login = () => {
             type="password"
             placeholder="Enter your password"
             name="password"
-            value={user?.password}
+            value={user?.password || ""}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
         </Form.Group>

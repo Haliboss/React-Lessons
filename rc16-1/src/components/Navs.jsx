@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
 
 function Navs() {
-  const { user } = useContext(LoginContext);
+  const { user, setUser } = useContext(LoginContext);
 
   return (
     <Navbar expand="md">
@@ -38,7 +38,11 @@ function Navs() {
                 Login
               </Link>
             ) : (
-              <Link className="nav-link" to="/login">
+              <Link
+                onClick={() => setUser({ email: "", password: "" })}
+                className="nav-link"
+                to="/login"
+              >
                 Logout
               </Link>
             )}
