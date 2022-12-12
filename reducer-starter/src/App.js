@@ -1,9 +1,11 @@
-import UseStateExample from "./UseStateExample";
+//import UseStateExample from "./UseStateExample";
+import UseReducer from './UseReducer'
 
 function App() {
   return (
     <div>
-      <UseStateExample />
+      {/* <UseStateExample /> */}
+      <UseReducer/>
     </div>
   );
 }
