@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 
+
 const TextFieldComp = () => {
   const [error, setError] = useState(false);
 
@@ -14,7 +15,7 @@ const TextFieldComp = () => {
         <Typography variant="h4" color="error" align="center" mt={4}>
           TEXT FIELD
         </Typography>
-        <Box mt={4}>
+        <Box sx={{mt:4, textAlign: 'center'}}>
           <TextField
             id="email"
             label="Email"
@@ -32,6 +33,10 @@ const TextFieldComp = () => {
             error={error}
             helperText={error && "Incorrect password format"}
           />
+
+          <Button variant="contained" color="warning" sx={{mt:2}}>
+            Submit
+          </Button>
         </Box>
       </Container>
     </div>
