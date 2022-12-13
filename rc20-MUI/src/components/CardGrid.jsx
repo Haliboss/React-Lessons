@@ -7,7 +7,6 @@ import {
   Button,
   CardActionArea,
   CardActions,
-  textFieldClasses,
 } from "@mui/material";
 import Grid from '@mui/material/Grid'
 import data from "../data";
@@ -20,10 +19,10 @@ export default function CardGrid() {
     </Typography>
     <Grid container spacing={2} justifyContent='center' alignItems='center'>
       {data.map((card) => {
-        const { id, text, img, name } = card;
+        const { text, img, name } = card;
         return (
           <Grid item xs={12} sm={6} md={4}>
-            <Card>
+            <Card sx={{boxShadow: 3}}>
               <CardActionArea>
                 <CardMedia component="img" image={img} alt="img" />
                 <CardContent>

@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const TextFieldComp = () => {
   const [error, setError] = useState(false);
+  console.log(setError);
 
   return (
     <div>
