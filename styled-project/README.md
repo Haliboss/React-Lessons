@@ -1,3 +1,1 @@
-## DEPLOYED:
-
-yarn https://styled-clarusway.netlify.app/
+my first styled project
